@@ -1,0 +1,14 @@
+// Prompt the user to enter a number
+var limit = prompt("Enter a number:");
+
+// Convert the input string to a number
+limit = parseInt(limit);
+
+// Iterate from 1 to the entered limit
+for (var i = 1; i <= limit; i++) {
+  // Calculate the square of the current number
+  var square = i * i;
+  
+  // Display the number and its square using an alert box
+  alert("Number: " + i + "\nSquare: " + square);
+}

@@ -1,0 +1,20 @@
+// Create an input textbox
+var input = document.createElement("input");
+input.type = "text";
+document.body.appendChild(input);
+
+// Create a div element to display the sorted string
+var resultDiv = document.createElement("div");
+document.body.appendChild(resultDiv);
+
+// Add an event listener to the input textbox
+input.addEventListener("input", function() {
+  // Get the entered string
+  var enteredString = input.value;
+
+  // Convert the string to an array, sort it alphabetically, and join back to a string
+  var sortedString = enteredString.split("").sort().join("");
+
+  // Display the sorted string in the result div
+  resultDiv.innerText = "Sorted String: " + sortedString;
+});

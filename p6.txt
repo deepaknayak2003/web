@@ -1,0 +1,33 @@
+// Function to encrypt the text using Caesar cipher
+function encryptText(text, shift) {
+  var encryptedText = "";
+  for (var i = 0; i < text.length; i++) {
+    var char = text[i];
+
+    // Check if the character is a letter
+    if (char.match(/[a-z]/i)) {
+      var code = text.charCodeAt(i);
+
+      // Handle uppercase and lowercase letters separately
+      if (code >= 65 && code <= 90) {
+        char = String.fromCharCode(((code - 65 + shift) % 26) + 65); // Uppercase letters (A-Z)
+      } else if (code >= 97 && code <= 122) {
+        char = String.fromCharCode(((code - 97 + shift) % 26) + 97); // Lowercase letters (a-z)
+      }
+    }
+
+    encryptedText += char;
+  }
+
+  return encryptedText;
+}
+
+// Prompt the user for input and shift pattern
+var text = prompt("Enter the text to encrypt:");
+var shift = parseInt(prompt("Enter the shift pattern (a positive integer):"));
+
+// Encrypt the text
+var encryptedText = encryptText(text, shift);
+
+// Display the encrypted text using an alert box
+alert("Encrypted Text: " + encryptedText);

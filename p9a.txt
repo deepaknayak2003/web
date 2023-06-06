@@ -1,0 +1,80 @@
+// Function to check if a year is a leap year
+function isLeapYear(year) {
+  if (year % 4 === 0) {
+    if (year % 100 === 0) {
+      if (year % 400 === 0) {
+        return true; // Divisible by 400, so a leap year
+      } else {
+        return false; // Divisible by 100 but not by 400, not a leap year
+      }
+    } else {
+      return true; // Divisible by 4 but not by 100, so a leap year
+    }
+  } else {
+    return false; // Not divisible by 4, not a leap year
+  }
+}
+
+// Prompt the user to enter the range of years
+var startYear = parseInt(prompt("Enter the start year:"));
+var endYear = parseInt(prompt("Enter the end year:"));
+
+// Array to store the leap years
+var leapYears = [];
+
+// Iterate through the range of years and check if each year is a leap year
+for (var year = startYear; year <= endYear; year++) {
+  if (isLeapYear(year)) {
+    leapYears.push(year);
+  }
+}
+
+// Display the leap years
+if (leapYears.length === 0) {
+  alert("There are no leap years in the given range.");
+} else {
+  alert("Leap years in the range " + startYear + " to " + endYear + ": " + leapYears.join(", "));
+}
+
+
+
+
+
+
+// Existing array
+var array = [1, 2, 3, 4, 5];
+
+// Prompt the user to choose an action
+var action = prompt("Choose an action: add / delete");
+
+if (action === "add") {
+  // Prompt the user to enter the element and position for adding
+  var element = parseInt(prompt("Enter the element to add:"));
+  var position = parseInt(prompt("Enter the position to add (0 - " + array.length + "):"));
+
+  // Check if the position is valid
+  if (position >= 0 && position <= array.length) {
+    // Add the element at the specified position
+    array.splice(position, 0, element);
+    alert("Element " + element + " added at position " + position);
+  } else {
+    alert("Invalid position!");
+  }
+} else if (action === "delete") {
+  // Prompt the user to enter the position for deletion
+  var position = parseInt(prompt("Enter the position to delete (0 - " + (array.length - 1) + "):"));
+
+  // Check if the position is valid
+  if (position >= 0 && position < array.length) {
+    // Delete the element at the specified position
+    var deletedElement = array.splice(position, 1);
+    alert("Element " + deletedElement[0] + " deleted from position " + position);
+  } else {
+    alert("Invalid position!");
+  }
+} else {
+  alert("Invalid action!");
+}
+
+// Display the updated array
+alert("Updated Array: " + array);

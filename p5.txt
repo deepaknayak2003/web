@@ -1,0 +1,41 @@
+// Prompt the user to enter a string
+var inputString = prompt("Enter a string:");
+
+// Trim leading and trailing whitespaces from the input string
+inputString = inputString.trim();
+
+// Split the input string into an array of words
+var wordsArray = inputString.split(" ");
+
+// Remove any empty words from the array
+wordsArray = wordsArray.filter(function(word) {
+  return word.length > 0;
+});
+
+// Count the number of words
+var wordCount = wordsArray.length;
+
+// Display the word count using an alert box
+alert("Number of words: " + wordCount);
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Test</title>
+</head>
+<body>
+    <script>
+        let inp=prompt("enter a string")
+        const vowels=['a','e','i','o','u']
+        let count=0
+        inp=inp.toLowerCase()
+        for(var i=0;i<inp.length;i++)
+        {
+            if(inp.includes(vowels[i]))
+            count++
+        }
+        alert("number of vowels in " + inp + ":" + count)
+    </script>
+</body>
+</html>

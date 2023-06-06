@@ -1,0 +1,25 @@
+// Prompt the user to enter a name
+var name = prompt("Enter a name:");
+
+// Split the name into an array of names
+var namesArray = name.split(" ");
+
+// Process each name in the array
+for (var i = 0; i < namesArray.length; i++) {
+  var currentName = namesArray[i];
+
+  // Extract the first letter of the name and add a dot
+  var processedName = currentName.charAt(0).toUpperCase() + ".";
+
+  // Replace the original name with the processed name in the array
+  namesArray[i] = processedName;
+}
+
+// Join the processed names back into a single string
+var processedNameString = namesArray.join(" ");
+
+// Set the desired styling for the output
+var style = "font-size: 14px; color: red; background-color: cyan;";
+
+// Display the processed name using document.write with the specified styling
+document.write("<p style='" + style + "'>" + processedNameString + "</p>");
