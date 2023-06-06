@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Set Operations</title>
+
+  <script>
+
+    // Create a new Set
+
+    const mySet = new Set();
+
+    // Function to add values to the Set
+
+    function addToSet() {
+
+      const value = document.getElementById('inputValue').value;
+
+      mySet.add(value);
+
+      document.getElementById('inputValue').value = '';
+
+      displaySet();
+
+    }
+
+    // Function to retrieve a value from the Set
+
+    function retrieveFromSet() {
+
+      const value = document.getElementById('inputValue').value;
+
+      const result = mySet.has(value) ? `Value "${value}" found in the Set.` : `Value "${value}" not found in the Set.`;
+
+      document.getElementById('result').innerHTML = result;
+
+    }
+
+    // Function to iterate over the Set and display the values in the HTML document
+
+    function displaySet() {
+
+      let setValues = '';
+
+      mySet.forEach(function(value) {
+
+        setValues += `<li>${value}</li>`;
+
+      });
+
+      document.getElementById('setValues').innerHTML = setValues;
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <h1>Set Operations</h1>
+
+  <label for="inputValue">Enter a value:</label>
+
+  <input type="text" id="inputValue" />
+
+  <button onclick="addToSet()">Add to Set</button>
+
+  <button onclick="retrieveFromSet()">Retrieve from Set</button>
+
+  <ul id="setValues"></ul>
+
+  <div id="result"></div>
+
+</body>
+
+</html>
